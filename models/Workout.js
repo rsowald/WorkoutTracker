@@ -7,24 +7,6 @@ const workoutSchema = new Schema({
         type: Date,
         required: true
     },
-    totalDuration: {
-        type: Number
-    },
-    numExercises: {
-        type: Number
-    },
-    totalWeight: {
-        type: Number
-    },
-    totalSets: {
-        type: Number
-    },
-    totalReps: {
-        type: Number
-    },
-    totalDistance: {
-        type: Number
-    },
     exercises: [
         {
             type: Schema.Types.ObjectId,
