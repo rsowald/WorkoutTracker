@@ -4,7 +4,7 @@ const Exercise = require("./Exercise");
 const workoutSchema = new mongoose.Schema({
     day: {
         type: Date,
-        required: true
+        default: Date.now()
     },
     exercises: [Exercise.schema]
 });
