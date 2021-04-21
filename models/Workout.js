@@ -1,18 +1,12 @@
 const mongoose = require("mongoose");
+const Exercise = require("./Exercise");
 
-const Schema = mongoose.Schema;
-
-const workoutSchema = new Schema({
-    date: {
+const workoutSchema = new mongoose.Schema({
+    day: {
         type: Date,
         required: true
     },
-    exercises: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Exercise"
-        }
-    ]
+    exercises: [Exercise.schema]
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);
