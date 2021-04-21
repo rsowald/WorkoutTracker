@@ -1,19 +1,9 @@
 const router = require("express").Router();
 const db = require("../models");
 
-router.get("/exercise", async (req, res) => {
-    try {
-        //TODO: is this supposed to work?
-        const exercise = await db.Exercise.find();
-        res.status(200).json(exercise);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
-
 router.get("/workouts", async (req, res) => {
     try {
-        const workouts = await db.Workout.find();
+        const workouts = await db.Workout.aggregate([{ $addFields: { totalDuration: { $sum: "$exercises.duration" } } }]);
         res.status(200).json(workouts);
     } catch (err) {
         res.status(500).json(err);
@@ -22,25 +12,26 @@ router.get("/workouts", async (req, res) => {
 
 router.get("/workouts/range", async (req, res) => {
     try {
-        const workoutRange = await db.Workout.find().populate("exercises").limit(7);
+        const workoutRange = await db.Workout.aggregate([{ $addFields: { totalDuration: { $sum: "$exercises.duration" } } }]).sort({ _id: -1 }).limit(7);
         res.status(200).json(workoutRange);
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
-router.post("/workouts", ({ body }, res) => {
+router.post("/workouts", async (req, res) => {
     try {
-        const newWorkout = db.Workout.create(body);
+        const newWorkout = await db.Workout.create({});
+        console.log(newWorkout)
         res.json(newWorkout);
     } catch (err) {
-        res.status(400).json(err);
+        console.error(err);
     }
 });
 
-router.put("/workouts", (req, res) => {
+router.put("/workouts/:id", async (req, res) => {
     try {
-        const updatedWorkout = db.Workout.findOneAndUpdate((req.params.id), req.body);
+        const updatedWorkout = await db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } }, { new: true });
         res.json(updatedWorkout);
     } catch (err) {
         res.status(400).json(err);
