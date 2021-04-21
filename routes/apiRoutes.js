@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const db = require("../../models");
+const db = require("../models");
 
 router.get("/exercise", async (req, res) => {
     try {
-        const exercise = await db.Exercise.find({});
+        //TODO: is this supposed to work?
+        const exercise = await db.Exercise.find();
         res.status(200).json(exercise);
     } catch (err) {
         res.status(500).json(err);
@@ -12,8 +13,8 @@ router.get("/exercise", async (req, res) => {
 
 router.get("/workouts", async (req, res) => {
     try {
-        const workout = await db.Workout.find({}).populate("exercises")
-        res.status(200).json(workout);
+        const workouts = await db.Workout.find();
+        res.status(200).json(workouts);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -21,7 +22,7 @@ router.get("/workouts", async (req, res) => {
 
 router.get("/workouts/range", async (req, res) => {
     try {
-        const workoutRange = await db.Workout.find({}).populate("exercises").limit(7);
+        const workoutRange = await db.Workout.find().populate("exercises").limit(7);
         res.status(200).json(workoutRange);
     } catch (err) {
         res.status(500).json(err);
