@@ -8,7 +8,7 @@
    
    This workout tracker is built to help a user meet their fitness goals by tracking their workouts. The user can add all of the exercises as they did to a workout and save the workout when complete. The stats are aggregated in a dashboard that shows a week's worth of daily workout durations, total weight lifted, and what portion of the workouts were devoted to which exercises. 
    
-    The application uses many different technologies on the front and back end. On the back end is an Express server deployed on Heroku and a Mongo database with Mongoose models hosted on Mongo DB Atlas cloud storage. The front end, developed by Trilogy developers, uses Semantic UI and Chart.js on top of the HTML/CSS/JS to make a clean and simple UI.
+The application uses many different technologies on the front and back end. On the back end is an Express server deployed on Heroku and a Mongo database with Mongoose models hosted on Mongo DB Atlas cloud storage. The front end, developed by Trilogy developers, uses Semantic UI and Chart.js on top of the HTML/CSS/JS to make a clean and simple UI.
     
   ![Landing Page](assets/screenshot.jpg)
   
