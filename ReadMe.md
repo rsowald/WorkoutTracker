@@ -4,7 +4,7 @@
   
   ## Description
 
-  ![Deployed Application](https://gentle-coast-08368.herokuapp.com/)
+  [Deployed Application](https://gentle-coast-08368.herokuapp.com/)
    
    This workout tracker is built to help a user meet their fitness goals by tracking their workouts. The user can add all of the exercises as they did to a workout and save the workout when complete. The stats are aggregated in a dashboard that shows a week's worth of daily workout durations, total weight lifted, and what portion of the workouts were devoted to which exercises. 
    
@@ -27,7 +27,7 @@ The application uses many different technologies on the front and back end. On t
   * [Questions](#questions)
     
   ## Usage
-  1. Navigate to ![https://gentle-coast-08368.herokuapp.com/](https://gentle-coast-08368.herokuapp.com/) to see your most recent workout and find options to continue that workout or start a new one.
+  1. Navigate to [https://gentle-coast-08368.herokuapp.com/](https://gentle-coast-08368.herokuapp.com/) to see your most recent workout and find options to continue that workout or start a new one.
   1. Click "Continue Workout" and you are redirected to a page to add a new exercise to your most recent workout. When done adding exercises, click "Complete".
   1. Back on the landing page, if you click "New Workout", you are redirected to the same page when you can add new exercises to a new workout. Again, click "Complete" when done adding exercises.
   1. At any time, you can click "Dashboard" in the nav bar to see aggregated stats from the previous week.
